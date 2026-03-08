@@ -1,61 +1,106 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Photo Vento | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Vento | Portfolio & Ritratti</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        img { 
-            opacity: 0; 
-            transition: opacity 0.8s ease-in-out;
-            image-rendering: -webkit-optimize-contrast; 
-        }
+        img { opacity: 0; transition: opacity 1.2s ease-in-out; }
         img[src] { opacity: 1; }
-        .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(9,9,11,1)), url('https://i.ibb.co/rR8QghBC/DSC-1313.jpg');
-            background-size: cover;
-            background-position: center;
-        }
+        .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
+        .section-title { position: relative; display: inline-block; }
+        .section-title::after { content: ''; position: absolute; width: 60%; height: 2px; background: #f59e0b; bottom: -10px; left: 20%; }
     </style>
 </head>
-<body class="bg-zinc-950 text-zinc-100 font-sans">
+<body class="bg-zinc-950 text-zinc-100 font-sans selection:bg-amber-500 selection:text-black">
 
-    <header class="p-6 flex justify-between items-center bg-zinc-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-zinc-800">
-        <h1 class="text-xl font-bold tracking-[0.3em] uppercase text-amber-500">Photo Vento</h1>
-        <a href="https://wa.me/393298857483" class="text-[10px] uppercase tracking-widest bg-amber-600 text-black px-4 py-2 font-bold">Contattami</a>
+    <header class="p-6 flex flex-col md:flex-row justify-between items-center bg-zinc-900/95 backdrop-blur-md sticky top-0 z-50 border-b border-zinc-800">
+        <h1 class="text-xl font-bold tracking-[0.3em] uppercase text-amber-500 mb-4 md:mb-0">Photo Vento</h1>
+        <nav class="flex flex-wrap justify-center text-[10px] md:text-xs uppercase tracking-[0.2em] gap-6">
+            <a href="#matrimoni" class="hover:text-amber-500 transition">Matrimoni</a>
+            <a href="#sport" class="hover:text-amber-500 transition">Sport</a>
+            <a href="#ritratti" class="hover:text-amber-500 transition">Ritratti</a> <a href="#contact" class="hover:text-amber-500 transition border-l border-zinc-700 pl-6 text-amber-500">Contatti</a>
+        </nav>
     </header>
 
-    <section class="relative h-[85vh] flex items-center justify-center overflow-hidden hero-bg">
+    <section class="relative h-[85vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[3000ms] hover:scale-110" 
+             style="background-image: url('https://i.ibb.co/spZbTM3W/foto.jpg');">
+        </div>
         <div class="relative z-20 text-center px-6">
-            <h2 class="text-6xl md:text-8xl font-thin tracking-tighter mb-4 text-white uppercase italic drop-shadow-lg">Photo Vento</h2>
-            <p class="text-zinc-300 uppercase tracking-[0.6em] text-[10px] font-light">Visual Storyteller</p>
+            <h2 class="text-6xl md:text-9xl font-thin tracking-tighter mb-4 text-white uppercase italic drop-shadow-2xl">Photo Vento</h2>
+            <p class="text-zinc-200 uppercase tracking-[0.8em] text-[10px] md:text-sm mb-10 font-light">Visual Storyteller</p>
+            <a href="#matrimoni" class="border border-amber-500 text-amber-500 px-10 py-4 hover:bg-amber-500 hover:text-black transition-all duration-500 uppercase text-[10px] tracking-widest font-bold">Apri il Catalogo</a>
         </div>
     </section>
 
-    <section id="gallery" class="py-20 px-4 md:px-12 bg-zinc-950">
+    <section id="matrimoni" class="py-24 px-4 md:px-12 bg-zinc-950">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h3 class="section-title text-3xl font-light uppercase tracking-widest text-white italic">Matrimoni</h3>
+        </div>
         <div class="max-w-7xl mx-auto">
-            <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                
-                <div class="overflow-hidden rounded-sm border border-zinc-900 group bg-zinc-900">
-                    <img src="https://i.ibb.co/rR8QghBC/DSC-1313.jpg" class="w-full h-auto block transform group-hover:scale-105 transition duration-700" alt="Scatto Photo Vento">
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-6">
+                <div class="masonry-item overflow-hidden rounded-sm border border-zinc-900 group">
+                    <img src="https://i.ibb.co/Kj994wXJ/foto.jpg" class="w-full grayscale hover:grayscale-0 transition duration-700 transform group-hover:scale-105" alt="Matrimonio">
                 </div>
-
-                <div class="aspect-square border border-dashed border-zinc-800 flex items-center justify-center p-10 text-center">
-                    <p class="text-zinc-600 text-[10px] uppercase tracking-widest">Carica altri file DSC per completare la griglia</p>
+                <div class="masonry-item overflow-hidden rounded-sm border border-zinc-900 group">
+                    <img src="https://i.ibb.co/JFBKg3Rf/foto.jpg" class="w-full grayscale hover:grayscale-0 transition duration-700 transform group-hover:scale-105" alt="Matrimonio">
                 </div>
-
             </div>
         </div>
     </section>
 
-    <footer class="py-20 px-6 bg-zinc-950 border-t border-zinc-900 text-center">
-        <h3 class="text-2xl font-light mb-8 italic">Prenota il tuo shooting</h3>
-        <div class="flex flex-col md:flex-row justify-center gap-4 max-w-md mx-auto">
-            <a href="https://wa.me/393298857483" class="bg-green-700 p-4 text-xs uppercase tracking-widest font-bold">WhatsApp</a>
-            <a href="mailto:photoventofficial@gmail.com" class="border border-zinc-700 p-4 text-xs uppercase tracking-widest font-bold">Email</a>
+    <section id="sport" class="py-24 px-4 md:px-12 bg-zinc-900/20">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h3 class="section-title text-3xl font-light uppercase tracking-widest text-white italic">Eventi Sportivi</h3>
         </div>
-        <p class="mt-12 text-zinc-700 text-[9px] uppercase tracking-[0.5em]">&copy; 2026 Photo Vento</p>
+        <div class="max-w-7xl mx-auto">
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-6">
+                <div class="masonry-item overflow-hidden rounded-sm border border-zinc-900 group">
+                    <img src="https://i.ibb.co/Mxfxvdws/foto.jpg" class="w-full grayscale hover:grayscale-0 transition duration-700 transform group-hover:scale-105" alt="Sport">
+                </div>
+                <div class="masonry-item overflow-hidden rounded-sm border border-zinc-900 group">
+                    <img src="https://i.ibb.co/MkKXBfwK/foto.jpg" class="w-full grayscale hover:grayscale-0 transition duration-700 transform group-hover:scale-105" alt="Sport">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ritratti" class="py-24 px-4 md:px-12 bg-zinc-950">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h3 class="section-title text-3xl font-light uppercase tracking-widest text-white italic">Ritratti</h3>
+        </div>
+        <div class="max-w-7xl mx-auto">
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-6">
+                <div class="masonry-item overflow-hidden rounded-sm border border-zinc-900 group">
+                    <img src="https://i.ibb.co/3YGmyYMj/foto.jpg" class="w-full grayscale hover:grayscale-0 transition duration-700 transform group-hover:scale-105" alt="Ritratti">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 bg-zinc-900/40 border-t border-zinc-900">
+        <div class="max-w-xl mx-auto text-center p-10 bg-black/60 border border-zinc-800 rounded-lg shadow-2xl">
+            <h3 class="text-4xl font-light mb-4 text-white italic">Lavoriamo Insieme</h3>
+            <p class="text-zinc-500 mb-12 text-[10px] uppercase tracking-[0.4em] font-light">Seguimi su Instagram per altri scatti</p>
+            
+            <div class="space-y-4">
+                <a href="https://www.instagram.com/photo_vento" target="_blank" 
+                   class="flex items-center justify-center bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-500 hover:to-pink-400 text-white font-bold py-5 uppercase tracking-widest text-xs transition-all duration-300 rounded-sm">
+                   Seguimi su Instagram
+                </a>
+                <a href="https://wa.me/393298857483" target="_blank" 
+                   class="flex items-center justify-center bg-green-700 hover:bg-green-600 text-white font-bold py-5 uppercase tracking-widest text-xs transition-all duration-300 rounded-sm">
+                   WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="p-12 text-center">
+        <p class="text-zinc-700 text-[10px] tracking-[0.5em] uppercase font-light">&copy; 2026 Photo Vento | Visual Art</p>
     </footer>
 
 </body>
